@@ -2,6 +2,9 @@
 
 ######################################################################
 # Script that prepares a CentOS 6 minimal VM for Vagrant packaging   #
+# Install Vagrant plugin manually with:                              #
+# vagrant plugin install vagrant-vbguest                             #
+# to enable VirtualBox guest additions                               #
 ######################################################################
 
 if [ "$EUID" -ne 0 ]
@@ -17,13 +20,6 @@ if [ "$EUID" -ne 0 ]
     chmod 0700 /home/vagrant/.ssh/
     chmod 0600 /home/vagrant/.ssh/authorized_keys
     chown -R vagrant:vagrant /home/vagrant/.ssh
-    
-    echo ":: Installing Development tools"
-    yum -y groupinstall "development tools" > /dev/null
-
-    echo ":: Installing VirtualBox additions"
-    mount /dev/sr0 /mnt
-    sh /mnt/VBoxLinuxAdditions.run
 
     echo ":: yum clean"
     yum -y clean all
