@@ -1,8 +1,8 @@
 #!/bin/bash
 
-###################################################################
-# Script that prepares a CentOS 6 minimal for Vagrant packaging   #
-###################################################################
+######################################################################
+# Script that prepares a CentOS 6 minimal VM for Vagrant packaging   #
+######################################################################
 
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
